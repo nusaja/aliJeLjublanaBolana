@@ -25,7 +25,7 @@ $elevated_values = [];
 
 foreach ($values as $key => $value) {
     if ($value >= $max_values[$key]) {
-        $answer = "NE";
+        $answer = "JA";
         $elevated_values[$key] = $value;  
     } 
 }
