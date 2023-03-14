@@ -9,6 +9,9 @@ $history = [
     true
 ];
 
+$policies = getPolicy();
+
+
 ?> 
 
 <!doctype html>

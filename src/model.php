@@ -45,6 +45,7 @@ function get_current_data() {
     ];
 
     $elements = [];
+    $policies = [];
 
     list($answer, $elevated_values) = yes_or_no($values);
 
@@ -78,6 +79,27 @@ function yes_or_no($values) {
     return [$answer, $elevated_values];
 
 }
+
+
+function getPolicy() {
+
+    $db  = new PDO('sqlite:../storage/ljubljana.db') or die("cannot open the database");
+    $query =  "SELECT * FROM policy_ideas";
+
+    foreach ($db->query($query) as $row) {
+        $policies[] = [
+            'id' => $row['id'],
+            'title' => $row['title'], 
+            'description' => $row['description'], 
+            'icon' => $row['icon']
+        ];
+    }
+
+    return $policies;
+
+}
+
+getPolicy();
 
 
 
